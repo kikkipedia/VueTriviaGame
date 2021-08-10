@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <Start/>
-  </div>
+    <Questions/>
+    </div>
 </template>
 
 <script>
 import Start from './components/Start.vue'
+import Questions from './components/Questions.vue'
 
 export default {
   name: 'App',
   components: {
-    Start
+    Start,
+    Questions
   }
 }
 </script>
