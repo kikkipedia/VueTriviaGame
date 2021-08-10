@@ -1,9 +1,9 @@
 <template>
     <div >
         <p >{{nextQuestion.question}}  <button @click="showNextQuestion()" >Next Question</button>
-        <button @click="getDisplayAnswers()">Answers</button></p>
         <p>{{nextQuestion.correct_answer}}</p>
-        <p>{{displayAnswers}}</p>
+        <p v-for="answer in displayAnswers" :key="answer">{{answer}}  <input type="radio" name="selectedAnswer" id="selectedAnswer"> </p>
+        <button type="submit" @click="showNextQuestion()">Submit</button>
 
         
     </div>
@@ -60,7 +60,6 @@
                 
             }
             
-
         },
         created(){
             this.fetchQuestions()
