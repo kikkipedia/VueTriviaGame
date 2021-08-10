@@ -1,16 +1,16 @@
 <template>
     <div >
         <p >{{nextQuestion.question}}  <button @click="showNextQuestion()" >Next Question</button>
-        <p>{{nextQuestion.correct_answer}}</p>
-        <p v-for="answer in displayAnswers" :key="answer">{{answer}}  <input type="radio" name="selectedAnswer" id="selectedAnswer"> </p>
-        <button type="submit" @click="showNextQuestion()">Submit</button>
+        
+        <p v-for="answer in displayAnswers" :key="answer">
+            <button type="submit" :key="answer" :value="answer" @click="showNextQuestion(); submitAnswer();">{{answer}}</button></p>  
 
+            <p>{{score}}</p>
         
     </div>
 </template>
 
 <script>
-
 
     export default({
         name: "Questions",
@@ -22,7 +22,9 @@
                 type:{},
                 correctAnswer:{},
                 incorrectAnswers:[],
-                displayAnswers:[]
+                displayAnswers:[],
+                score:0,
+                selectedAnswer:''
                 
             }
         },
@@ -53,13 +55,21 @@
                     this.correctAnswer = this.nextQuestion.correct_answer
                     this.questions.pop(this.nextQuestion)
                     console.log(this.nextQuestion) 
-                   
-                    this.getDisplayAnswers()
+                      this.getDisplayAnswers()
 
                 }
                 
+            },
+            submitAnswer(){
+                console.log("Test")
+                console.log(this.nextQuestion.correct_answer)
+                console.log(this.answer)
+                if (this.nextQuestion.correct_answer === this.answer ) {
+                    console.log(this.answer)
+                    
+                    this.score +=10
+                    }
             }
-            
         },
         created(){
             this.fetchQuestions()
