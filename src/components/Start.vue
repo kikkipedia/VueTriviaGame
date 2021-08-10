@@ -1,20 +1,23 @@
 <template>
     <div>
         <p>Difficulty</p>
-        <select id="difficulty">
+        <select v-model="difficultyChoice">
             <option v-for="(option, index) in difficulties" v-bind:key="index">
                 {{ option }}
             </option>
         </select>
         <p>Categories</p>
-        <select id="categories">
+        <select v-model="categoriesChoice">
             <option v-for="category in categories" v-bind:key="category.id">
                 {{category.name}}
             </option>
         </select>
         <p># of questions</p>
-        <input id="numQuestions" type="number">
-        <p><button id="start" v-on:click="generateUrl()">Start</button></p>
+        <input v-model="amountChoice" type="number" min="1">
+        <div v-if="categoriesChoice && difficultyChoice && amountChoice">
+            <p><button  id="start" v-on:click="generateUrl()">Start</button></p>
+        </div>
+        
     </div>
 </template>
 
@@ -26,7 +29,10 @@
                 difficulties: ['Easy', 'Medium', 'Hard'],
                 categories: [],
                 amount: 0,
-                categoryId: ''
+                categoryId: '',
+                categoriesChoice: undefined,
+                difficultyChoice: undefined,
+                amountChoice: undefined
             }
         },
         methods: {
