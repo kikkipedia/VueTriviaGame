@@ -8,7 +8,7 @@
         </select>
         <p>Categories</p>
         <select v-model="categoriesChoice">
-            <option v-for="category in categories" v-bind:key="category.id">
+            <option v-for="category in categories" v-bind:key="category.id" :value="category.id">
                 {{category.name}}
             </option>
         </select>
@@ -26,13 +26,13 @@
         name: "Start",
         data() {
             return {
-                difficulties: ['Easy', 'Medium', 'Hard'],
+                difficulties: ['easy', 'medium', 'hard'],
                 categories: [],
                 amount: 0,
-                categoryId: '',
-                categoriesChoice: undefined,
-                difficultyChoice: undefined,
-                amountChoice: undefined
+                categoryId: {},
+                categoriesChoice: {},
+                difficultyChoice: {},
+                amountChoice: {}
             }
         },
         methods: {
@@ -43,6 +43,7 @@
             },
             generateUrl() {
                 console.log("generate url for fetching questions")
+                console.log("https://opentdb.com/api.php?amount=" + this.amountChoice + "&category=" + this.categoriesChoice+ "&difficulty="+this.difficultyChoice)
             }
         },
         created() {
