@@ -3,7 +3,7 @@
         <p >{{nextQuestion.question}}  <button @click="showNextQuestion()" >Next Question</button>
         
         <p v-for="answer in displayAnswers" :key="answer">
-            <button type="submit" :key="answer" :value="answer" @click="showNextQuestion(); submitAnswer();">{{answer}}</button></p>  
+            <button type="submit" :value="answer" @click="showNextQuestion(); submitAnswer(answer);">{{answer}}</button></p>  
 
             <p>{{score}}</p>
         
@@ -60,13 +60,12 @@
                 }
                 
             },
-            submitAnswer(){
-                console.log("Test")
+            submitAnswer(x){
+                
                 console.log(this.nextQuestion.correct_answer)
-                console.log(this.answer)
-                if (this.nextQuestion.correct_answer === this.answer ) {
-                    console.log(this.answer)
-                    
+                console.log(x)
+                if (this.nextQuestion.correct_answer === x ) {
+                                        
                     this.score +=10
                     }
             }
