@@ -47,7 +47,7 @@
                     this.categories = response.trivia_categories
             },
             changed: function() {
-                const quizUrl = "https://opentdb.com/api.php?amount=" + this.amountChoice + "&category=" + this.categoriesChoice + "&difficulty=" + this.difficultyChoice
+                const quizUrl = "https://opentdb.com/api.php?amount=" + this.amountChoice + "&category=" + this.categoriesChoice + "&difficulty=" + this.difficultyChoice + "&encode=base64"
                 this.$store.commit('setUrl', quizUrl)
             }
         },
