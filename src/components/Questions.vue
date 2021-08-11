@@ -1,8 +1,14 @@
 <template>
-    <div >
-        <p>{{nextQuestion.question}}</p>       
-        <p v-for="answer in displayAnswers" :key="answer">
-            <button type="submit" :value="answer" @click=" submitAnswer(answer)">{{answer}}</button></p>         
+
+<div style="background-color: #FFEFEF" >
+        <div class="question-container">
+            <p >{{nextQuestion.question}}</p> 
+        </div>
+        <div class="answers-container">
+            <p v-for="answer in displayAnswers" :key="answer">
+            <button class="answer-button" type="submit" :value="answer" @click="showNextQuestion(); submitAnswer(answer);">{{answer}}</button></p>  
+        </div>
+ 
     </div>
 </template>
 
@@ -91,6 +97,36 @@
 </script>
 
 <style scoped>
+
+.question-container {
+      display: flex;
+      
+      align-items: center;
+      justify-content: center;
+      height: 120px;
+      width: 900px;
+      border-width: 10px;
+      border: 2px solid blue; 
+      background-color: white;
+      border-radius: 6px;
+      
+  }
+  .answers-container{
+      display: flex;
+      
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      width: 700px;
+      
+      
+  }
+  .answer-button{
+      display: flex;
+      border: 2px solid blue;
+      background-color: white;
+      border-radius: 6px;
+  }
 
 
 </style>
