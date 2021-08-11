@@ -1,16 +1,14 @@
 <template>
-    <div style="background-color: #FFEFEF" >
+
+<div style="background-color: #FFEFEF" >
         <div class="question-container">
-            <p >{{nextQuestion.question}}  <button @click="showNextQuestion()" >Next Question</button></p> 
+            <p >{{nextQuestion.question}}</p> 
         </div>
         <div class="answers-container">
             <p v-for="answer in displayAnswers" :key="answer">
             <button class="answer-button" type="submit" :value="answer" @click="showNextQuestion(); submitAnswer(answer);">{{answer}}</button></p>  
         </div>
-            
-        
-            <p>Score: {{$store.getters.points}}</p>
-        
+ 
     </div>
 </template>
 
@@ -27,12 +25,14 @@
                 correctAnswer:{},
                 incorrectAnswers:[],
                 displayAnswers:[],
-                selectedAnswer:''               
+                selectedAnswer:'',
+                isCorrect: false              
             }
         },
         methods: {
             async fetchQuestions() {
                 const url = this.$store.state.url
+                console.log(url)
                 try {
                     let response = await fetch(url)
                     .then(response => response.json())
@@ -44,7 +44,8 @@
                 this.showNextQuestion()
                 
             },
-            getDisplayAnswers(){
+            getDisplayAnswers(){    
+                //randomises answers order on screen
                 for (let index = 0; index < this.incorrectAnswers.length; index++) {
                     this.displayAnswers.push(this.incorrectAnswers[index])
                 }
@@ -53,37 +54,46 @@
 
             },
             showNextQuestion(){
-                 this.displayAnswers = []
+                this.displayAnswers = []
                 if(this.questions.length < 1) {
                     //No questions remain, progress to next screen
-                    console.log("No questions remaining")
-                }else{
+                    this.$router.push('/results')
+                } else {
                     this.nextQuestion = this.questions[Math.floor(Math.random()*this.questions.length)]
                     this.incorrectAnswers = this.nextQuestion.incorrect_answers
                     this.correctAnswer = this.nextQuestion.correct_answer
-                    this.questions.pop(this.nextQuestion)
-                    console.log(this.nextQuestion) 
                     this.getDisplayAnswers()
-
+                    //remove selected question from local array so it will not show again
+                    const index = this.questions.indexOf(this.nextQuestion)
+                    this.questions.splice(index, 1)
                 }
                 
             },
             submitAnswer(x){                
-                console.log(this.nextQuestion.correct_answer)
                 if (this.nextQuestion.correct_answer === x ) {
                     console.log("That is correct!")
-                    this.$store.state.points += 10    
+                    this.isCorrect = true
+                    this.$store.state.points += 10 
+                    this.submitToResults(x)
+                    this.showNextQuestion()   
                 }
                 else {
-                    console.log("wrong answer!")
+                    console.log("Wrong answer!")
+                    this.isCorrect = false
+                    this.submitToResults(x)
+                    this.showNextQuestion()
                 }
+            },
+            submitToResults(x) {
+                let answerArray = [this.nextQuestion.question, this.correctAnswer, x]
+                this.$store.commit('addAnswers', answerArray);
             }
         },
-        created(){
+        mounted(){
             this.fetchQuestions()
         } 
-
     })
+    
 </script>
 
 <style scoped>
