@@ -1,21 +1,22 @@
-<template >
-    <div class="background font">
-        <div class="result-container">
-            <h3>Results</h3>
-        </div>
-        <div>
-            <p class="results-container" v-for="answer in $store.getters.answers" :key="answer" :value="answer">{{answer}}
 
-            </p>
+<template>
+    <div class="background font">
+        <h3>Results</h3>
+        <p>Your total score: {{$store.getters.points}}</p>
+        
+        <div class="results-container v-for="answer in $store.state.answers" :key="answer">
+            <div>
+                <p>Question: {{ answer[0] }}</p>
+                <p>Correct answer: {{ answer[1] }}</p>
+                <p>Your answer: {{ answer[2] }}</p>
+                <hr/>
+            </div>           
         </div>
         <div class="flex-container">
-            <p><router-link to="/"><button class="button" @click="startOver()">Start over</button></router-link></p>
-            <p><router-link to="/questions"><button class="button" @click="newQuestions()">Replay with new questions</button></router-link></p>
-            <p class="score-container">Your total score: {{$store.getters.points}}</p>
+        <p><router-link to="/"><button class="button" @click="startOver()">Start over</button></router-link></p>
+        <p><router-link to="/questions"><button class="button" @click="newQuestions()">Replay with new questions</button></router-link></p>
         </div>
-        <div>
-            
-        </div>
+
     </div>
 </template>
 
@@ -23,11 +24,13 @@
     export default({
         name: "Results",
         methods: {
+            //resets state
             startOver() {
                 this.$store.state.points = 0
                 this.$store.state.url = '',
                 this.$store.state.answers = []
             },
+            //keeps url state
             newQuestions() {
                 this.$store.state.points = 0
                 this.$store.state.answers = []
