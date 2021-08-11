@@ -68,18 +68,18 @@
                     console.log("That is correct!")
                     this.isCorrect = true
                     this.$store.state.points += 10 
-                    this.submitToResults()
+                    this.submitToResults(x)
                     this.showNextQuestion()   
                 }
                 else {
                     console.log("Wrong answer!")
                     this.isCorrect = false
-                    this.submitToResults()
+                    this.submitToResults(x)
                     this.showNextQuestion()
                 }
             },
-            submitToResults() {
-                let answerArray = [this.nextQuestion.question, this.correctAnswer, this.isCorrect]
+            submitToResults(x) {
+                let answerArray = [this.nextQuestion.question, this.correctAnswer, x]
                 this.$store.commit('addAnswers', answerArray);
             }
         },

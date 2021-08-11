@@ -4,7 +4,7 @@
         <p>Your total score: {{$store.getters.points}}</p>
         <p>Show question and user/right answers</p>
         <p>{{$store.getters.answers}}</p>
-        <p><router-link to="/"><button @click="backToStart()">Start over</button></router-link></p>
+        <p><router-link to="/"><button @click="startOver()">Start over</button></router-link></p>
         <p><router-link to="/questions"><button @click="newQuestions()">Replay with new questions</button></router-link></p>
     </div>
 </template>
