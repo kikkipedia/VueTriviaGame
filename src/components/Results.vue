@@ -4,16 +4,16 @@
         
         <table>
             <tr>
-                <th></th>
                 <th>Question</th>
                 <th>Correct answer</th>
                 <th>Your answer</th>
+                <th></th>
             </tr>
             <tr v-for="answer in $store.state.answers" :key="answer.index">
-                <td>nr</td>
                 <td>{{ answer[0] }}</td>
                 <td>{{ answer[1] }}</td>
                 <td>{{ answer[2] }}</td>
+                <td v-if="answer[1]===answer[2]">right</td>
             </tr>
         </table>    
 
