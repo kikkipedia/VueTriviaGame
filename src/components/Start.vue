@@ -1,24 +1,29 @@
-<template>
-    <div>
+<template >
+    <div class="border-box" style="background-color: #FFEFEF">
+        <div class="flex-container" >
         <p>Difficulty</p>
-        <select v-model="difficultyChoice">
-            <option v-for="(option, index) in difficulties" v-bind:key="index">
+        <select class="selector" v-model="difficultyChoice" >
+            <option v-for="(option, index) in difficulties" v-bind:key="index" selected>
                 {{ option }}
             </option>
         </select>
         <p>Categories</p>
-        <select v-model="categoriesChoice">
+        <select class="selector" v-model="categoriesChoice">
             <option v-for="category in categories" v-bind:key="category.id" :value="category.id">
                 {{category.name}}
             </option>
         </select>
         <p># of questions</p>
-        <input v-model="amountChoice" type="number" min="1">
-        <div v-if="categoriesChoice && difficultyChoice && amountChoice">
-            <p><router-link :to="{ name: 'Questions' }"><button  id="start" v-on:click="changed">Start</button></router-link></p>
-        </div>
+        <input class="inputNumber"   v-model="amountChoice" type="number" min="1">
         
+        
+    </div >
+    <div class="flex-container" v-if="categoriesChoice && difficultyChoice && amountChoice">
+            <p><router-link :to="{ name: 'Questions' }"><button class="startButton" id="start" v-on:click="changed">Start</button></router-link></p>
+        </div>
     </div>
+
+    
 </template>
 
 <script>
@@ -52,4 +57,52 @@
     })
 </script>
 
-<style></style>
+<style>
+.flex-container {
+      display: flex;
+      height: 200px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      
+  }
+.startButton{
+    display:flex;
+    align-items: center;
+    justify-content:center;  
+    border: 2px solid blue;
+    background-color: white;
+    border-radius: 6px;
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+       
+}
+.borderBox{
+  background-color: #FFEFEF; 
+  color: coral; 
+  box-sizing: border-box;
+}
+.selector{
+    display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-color: blue;
+  border-width: 2px;
+  border-radius: 6px;
+    
+}
+.inputNumber{
+      display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-color: blue;
+  border-width: 2px;
+  border-radius: 6px;
+}
+
+</style>
