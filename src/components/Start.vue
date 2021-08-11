@@ -1,9 +1,9 @@
 <template >
-    <div class="border-box" style="background-color: #FFEFEF">
+    <div class="background font" >
         <div class="flex-container" >
         <p>Difficulty</p>
         <select class="selector" v-model="difficultyChoice" >
-            <option v-for="(option, index) in difficulties" v-bind:key="index" selected>
+                <option v-for="(option, index) in difficulties" v-bind:key="index" selected>
                 {{ option }}
             </option>
         </select>
@@ -19,7 +19,7 @@
         
     </div >
     <div class="flex-container" v-if="categoriesChoice && difficultyChoice && amountChoice">
-            <p><router-link :to="{ name: 'Questions' }"><button class="startButton" id="start" v-on:click="changed">Start</button></router-link></p>
+            <p><router-link :to="{ name: 'Questions' }"><button class="button" id="start" v-on:click="changed">Start</button></router-link></p>
         </div>
     </div>
 
@@ -58,41 +58,16 @@
 </script>
 
 <style>
-.flex-container {
-      display: flex;
-      height: 200px;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      
-  }
-.startButton{
-    display:flex;
-    align-items: center;
-    justify-content:center;  
-    border: 2px solid blue;
-    background-color: white;
-    border-radius: 6px;
-    width: 100px;
-    height: 40px;
-    font-size: 20px;
-       
-}
-.borderBox{
-  background-color: #FFEFEF; 
-  color: coral; 
-  box-sizing: border-box;
-}
+
 .selector{
     display: flex;
   flex-direction: column;
   max-width: 200px;
   justify-content: flex-start;
   align-items: flex-start;
-  border-color: blue;
+  border-color: cornflowerblue;
   border-width: 2px;
-  border-radius: 6px;
-    
+  border-radius: 6px; 
 }
 .inputNumber{
       display: flex;
@@ -100,7 +75,7 @@
   max-width: 200px;
   justify-content: flex-start;
   align-items: flex-start;
-  border-color: blue;
+  border-color: cornflowerblue;
   border-width: 2px;
   border-radius: 6px;
 }
