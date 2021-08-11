@@ -46,6 +46,7 @@
                     .then(response => response.json())
                     this.categories = response.trivia_categories
             },
+            //gets the api url for the questions
             changed: function() {
                 const quizUrl = "https://opentdb.com/api.php?amount=" + this.amountChoice + "&category=" + this.categoriesChoice + "&difficulty=" + this.difficultyChoice + "&encode=base64"
                 this.$store.commit('setUrl', quizUrl)

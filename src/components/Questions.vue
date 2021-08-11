@@ -70,15 +70,11 @@
             },
             submitAnswer(x){                
                 if (this.nextQuestion.correct_answer === x ) {
-                    //to be removed
                     this.$store.state.points += 10 
                     this.submitToResults(x)
                     this.showNextQuestion()   
                 }
                 else {
-                    console.log("Wrong answer!")
-                    //to be removed
-                    this.isCorrect = false
                     this.submitToResults(x)
                     this.showNextQuestion()
                 }
