@@ -6,7 +6,7 @@
         </div>
         <div class="answers-container">
             <p v-for="answer in displayAnswers" :key="answer">
-            <button class="answer-button" type="submit" :value="answer" @click="showNextQuestion(); submitAnswer(answer);">{{answer}}</button></p>  
+            <button class="answer-button" type="submit" :value="answer" @click="submitAnswer(answer);">{{answer}}</button></p>  
         </div>
  
     </div>
@@ -55,6 +55,7 @@
             },
             showNextQuestion(){
                 this.displayAnswers = []
+                console.log(this.questions.length)
                 if(this.questions.length < 1) {
                     //No questions remain, progress to next screen
                     this.$router.push('/results')
