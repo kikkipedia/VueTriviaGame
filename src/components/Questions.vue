@@ -1,13 +1,10 @@
 <template>
     <div >
-        <p><button @click="fetchQuestions()">Question start</button>
-        <p >{{nextQuestion.question}}  <button @click="showNextQuestion()" >Next Question</button>
-        
+        <p >{{nextQuestion.question}}  <button @click="showNextQuestion()" >Next Question</button>       
         <p v-for="answer in displayAnswers" :key="answer">
             <button type="submit" :value="answer" @click="showNextQuestion(); submitAnswer(answer);">{{answer}}</button></p>  
 
-            <p>{{score}}</p>
-            <p>{{$store.getters.url}}</p>
+            <p>Score: {{$store.getters.points}}</p>
         
     </div>
 </template>
@@ -25,9 +22,7 @@
                 correctAnswer:{},
                 incorrectAnswers:[],
                 displayAnswers:[],
-                score:0,
-                selectedAnswer:''
-                
+                selectedAnswer:''               
             }
         },
         methods: {
@@ -36,12 +31,12 @@
                 try {
                     let response = await fetch(url)
                     .then(response => response.json())
-                    console.log("får ett response som array")
                     this.questions = response.results
                 }
                 catch(err){
                     console.log("Something happened: " + err)
                 }
+                this.showNextQuestion()
                 
             },
             getDisplayAnswers(){
@@ -63,24 +58,25 @@
                     this.correctAnswer = this.nextQuestion.correct_answer
                     this.questions.pop(this.nextQuestion)
                     console.log(this.nextQuestion) 
-                      this.getDisplayAnswers()
+                    this.getDisplayAnswers()
 
                 }
                 
             },
-            submitAnswer(x){
-                
+            submitAnswer(x){                
                 console.log(this.nextQuestion.correct_answer)
-                console.log(x)
                 if (this.nextQuestion.correct_answer === x ) {
-                                        
-                    this.score +=10
-                    }
+                    console.log("That is correct!")
+                    this.$store.state.points += 10    
+                }
+                else {
+                    console.log("wrong answer!")
+                }
             }
-        }/* ,
+        },
         created(){
             this.fetchQuestions()
-        } */
+        } 
 
     })
 </script>
