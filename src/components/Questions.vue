@@ -37,11 +37,7 @@
                     let response = await fetch(url)
                     .then(response => response.json())
                     console.log("får ett response som array")
-                    //FEL HÄR!!!!!
                     this.questions = response.results
-                    console.log("response.results är tom?" + response.results)
-                    console.log(this.question)
-
                 }
                 catch(err){
                     console.log("Something happened: " + err)
