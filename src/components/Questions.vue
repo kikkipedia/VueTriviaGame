@@ -5,7 +5,7 @@
         </div>
         <div class="answers-container">
             <p v-for="answer in displayAnswers" :key="answer">
-            <button class="answer-button" type="submit" :value="answer" @click="submitAnswer(answer);">{{answer}}</button></p>  
+            <button class="answer-button" type="submit" :value="answer" @click="submitAnswer(answer)">{{answer}}</button></p>  
         </div>
  
     </div>
@@ -69,7 +69,7 @@
                 
             },
             submitAnswer(x){                
-                if (this.nextQuestion.correct_answer === x ) {
+                if (this.decode64(this.nextQuestion.correct_answer) === x ) {
                     this.$store.state.points += 10 
                     this.submitToResults(x)
                     this.showNextQuestion()   
