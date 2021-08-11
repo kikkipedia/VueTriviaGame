@@ -38,8 +38,8 @@
         methods: {
             async fetchCategory() {
                 let response = await fetch("https://opentdb.com/api_category.php")
-                .then(response => response.json())
-                this.categories = response.trivia_categories
+                    .then(response => response.json())
+                    this.categories = response.trivia_categories
             },
             changed: function() {
                 const quizUrl = "https://opentdb.com/api.php?amount=" + this.amountChoice + "&category=" + this.categoriesChoice + "&difficulty=" + this.difficultyChoice

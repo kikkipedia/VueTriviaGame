@@ -1,11 +1,13 @@
 <template>
     <div >
+        <p><button @click="fetchQuestions()">Question start</button>
         <p >{{nextQuestion.question}}  <button @click="showNextQuestion()" >Next Question</button>
         
         <p v-for="answer in displayAnswers" :key="answer">
             <button type="submit" :value="answer" @click="showNextQuestion(); submitAnswer(answer);">{{answer}}</button></p>  
 
             <p>{{score}}</p>
+            <p>{{$store.getters.url}}</p>
         
     </div>
 </template>
@@ -30,9 +32,20 @@
         },
         methods: {
             async fetchQuestions() {
-                let response = await fetch(this.$store.url)
-                .then(response => response.json())
-                this.questions = response.results
+                const url = this.$store.state.url
+                try {
+                    let response = await fetch(url)
+                    .then(response => response.json())
+                    console.log("får ett response som array")
+                    //FEL HÄR!!!!!
+                    this.questions = response.results
+                    console.log("response.results är tom?" + response.results)
+                    console.log(this.question)
+
+                }
+                catch(err){
+                    console.log("Something happened: " + err)
+                }
                 
             },
             getDisplayAnswers(){
@@ -68,11 +81,10 @@
                     this.score +=10
                     }
             }
-        },
+        }/* ,
         created(){
             this.fetchQuestions()
-           // this.showNextQuestion()
-        }
+        } */
 
     })
 </script>
