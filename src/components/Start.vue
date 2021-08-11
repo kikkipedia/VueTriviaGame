@@ -15,7 +15,7 @@
         <p># of questions</p>
         <input v-model="amountChoice" type="number" min="1">
         <div v-if="categoriesChoice && difficultyChoice && amountChoice">
-            <p><button  id="start" v-on:click="changed">Start</button></p>
+            <p><router-link :to="{ name: 'Questions' }"><button  id="start" v-on:click="changed">Start</button></router-link></p>
         </div>
         
     </div>
