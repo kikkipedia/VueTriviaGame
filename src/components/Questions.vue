@@ -30,8 +30,7 @@
         },
         methods: {
             async fetchQuestions() {
-                let response = await fetch("https://opentdb.com/api.php?amount=6&category=18&difficulty=medium")
-               // let response = await fetch("https://opentdb.com/api.php?amount=" + this.amountChoice + "&category=" + this.categoriesChoice+ "&difficulty="+this.difficultyChoice)
+                let response = await fetch(this.$store.url)
                 .then(response => response.json())
                 this.questions = response.results
                 
