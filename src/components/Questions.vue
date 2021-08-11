@@ -1,8 +1,8 @@
 <template>
     <div >
-        <p >{{nextQuestion.question}}  <button @click="showNextQuestion()" >Next Question</button>       
+        <p>{{nextQuestion.question}}</p>       
         <p v-for="answer in displayAnswers" :key="answer">
-            <button type="submit" :value="answer" @click="showNextQuestion(); submitAnswer(answer);">{{answer}}</button></p>  
+            <button type="submit" :value="answer" @click=" submitAnswer(answer)">{{answer}}</button></p>  
 
             <p>Score: {{$store.getters.points}}</p>
         
@@ -39,7 +39,8 @@
                 this.showNextQuestion()
                 
             },
-            getDisplayAnswers(){
+            getDisplayAnswers(){    
+                //randomises answers order on screen
                 for (let index = 0; index < this.incorrectAnswers.length; index++) {
                     this.displayAnswers.push(this.incorrectAnswers[index])
                 }
@@ -48,10 +49,11 @@
 
             },
             showNextQuestion(){
-                 this.displayAnswers = []
+                this.displayAnswers = []
                 if(this.questions.length < 1) {
                     //No questions remain, progress to next screen
                     console.log("No questions remaining")
+                    this.$router.push('/results')
                 }else{
                     this.nextQuestion = this.questions[Math.floor(Math.random()*this.questions.length)]
                     this.incorrectAnswers = this.nextQuestion.incorrect_answers
@@ -59,7 +61,6 @@
                     this.questions.pop(this.nextQuestion)
                     console.log(this.nextQuestion) 
                     this.getDisplayAnswers()
-
                 }
                 
             },
@@ -67,18 +68,21 @@
                 console.log(this.nextQuestion.correct_answer)
                 if (this.nextQuestion.correct_answer === x ) {
                     console.log("That is correct!")
-                    this.$store.state.points += 10    
+                    this.$store.state.points += 10 
+                    this.showNextQuestion()   
                 }
                 else {
                     console.log("wrong answer!")
+                    this.showNextQuestion()
                 }
             }
         },
-        created(){
+        mounted(){
             this.fetchQuestions()
+            console.log("mounted")
         } 
-
     })
+    
 </script>
 
 <style scoped>

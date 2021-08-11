@@ -1,11 +1,9 @@
-//store used to share states between components and to manipulate them
-
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-//Application store that holds the state
 Vue.use(Vuex)
 
+//store used to share states between components and to manipulate them
 export const store = new Vuex.Store({
     state: {
         url: '',
