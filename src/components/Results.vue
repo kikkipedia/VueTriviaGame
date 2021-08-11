@@ -1,16 +1,21 @@
 <template>
     <div>
-        <h3>Results</h3>
-        <p>Your total score: {{$store.getters.points}}</p>
+        <h2>Your total score: {{$store.getters.points}}</h2>
         
-        <div v-for="answer in $store.state.answers" :key="answer">
-            <div>
-                <p>Question: {{ answer[0] }}</p>
-                <p>Correct answer: {{ answer[1] }}</p>
-                <p>Your answer: {{ answer[2] }}</p>
-                <hr/>
-            </div>           
-        </div>
+        <table>
+            <tr>
+                <th></th>
+                <th>Question</th>
+                <th>Correct answer</th>
+                <th>Your answer</th>
+            </tr>
+            <tr v-for="answer in $store.state.answers" :key="answer.index">
+                <td>nr</td>
+                <td>{{ answer[0] }}</td>
+                <td>{{ answer[1] }}</td>
+                <td>{{ answer[2] }}</td>
+            </tr>
+        </table>    
 
         <p><router-link to="/"><button @click="startOver()">Start over</button></router-link></p>
         <p><router-link to="/questions"><button @click="newQuestions()">Replay with new questions</button></router-link></p>
@@ -38,4 +43,17 @@
 
 
 
-<style></style>
+<style scoped>
+    table, td, th {
+        text-align: left;
+        border: 0px solid black;
+        margin: 5px;
+        padding: 5px;
+    }
+    .correct {
+        background-color: lightgreen;
+    }
+    .wrong{
+        background-color: lightcoral;
+    }
+</style>
