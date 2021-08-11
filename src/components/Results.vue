@@ -1,6 +1,6 @@
 
 <template>
-<<<<<<< HEAD
+
     <div>
         <h2>Your total score: {{$store.getters.points}}</h2>
         
@@ -18,24 +18,26 @@
                 <td v-if="answer[1]===answer[2]">right</td>
             </tr>
         </table>    
-=======
+
     <div class="background font">
-        <h3>Results</h3>
-        <p>Your total score: {{$store.getters.points}}</p>
+        <h3 class="result-container">Results</h3>
         
-        <div class="results-container v-for="answer in $store.state.answers" :key="answer">
-            <div>
-                <p>Question: {{ answer[0] }}</p>
-                <p>Correct answer: {{ answer[1] }}</p>
-                <p>Your answer: {{ answer[2] }}</p>
+        <div  v-for="answer in $store.state.answers" :key="answer">
+            <div >
+                <p class="results-container">Question: {{ answer[0] }}</p>
+                <div class="flex-container">
+                    <p class="answer-container">Correct answer: {{ answer[1] }}</p>
+                    <p class="answer-container">Your answer: {{ answer[2] }}</p>
+                </div>
+                
                 <hr/>
             </div>           
         </div>
         <div class="flex-container">
         <p><router-link to="/"><button class="button" @click="startOver()">Start over</button></router-link></p>
         <p><router-link to="/questions"><button class="button" @click="newQuestions()">Replay with new questions</button></router-link></p>
+        <p class="score-container">Your total score: {{$store.getters.points}}</p>
         </div>
->>>>>>> 151fcfd51d080884ab3d3246b0a675a43c72d121
 
     </div>
 </template>
@@ -61,7 +63,7 @@
 
 
 
-<<<<<<< HEAD
+
 <style scoped>
     table, td, th {
         text-align: left;
@@ -75,7 +77,7 @@
     .wrong{
         background-color: lightcoral;
     }
-=======
+
 <style>
 
   .result-container {
@@ -94,7 +96,6 @@
       align-items: center;
       justify-content: center;
       height: 80px;
-      width: 650px;
       border-width: 10px;
       border: 2px solid cornflowerblue; 
       background-color: white;
@@ -109,11 +110,24 @@
       background-color: white;
       color: rgb(49, 97, 185);
       height: 60px;
-      width: 140px;
+      width: 150px;
       border-radius: 6px;
       margin: 10px;
       font-size: 14px;
       text-align: center;
   }
->>>>>>> 151fcfd51d080884ab3d3246b0a675a43c72d121
+
+  .answer-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+      width: 300px;
+      border-width: 10px;
+      border: 2px solid cornflowerblue; 
+      background-color: white;
+      border-radius: 6px;
+      margin: 30px;
+  }
+
 </style>
