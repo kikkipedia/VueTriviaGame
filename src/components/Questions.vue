@@ -2,10 +2,7 @@
     <div >
         <p>{{nextQuestion.question}}</p>       
         <p v-for="answer in displayAnswers" :key="answer">
-            <button type="submit" :value="answer" @click=" submitAnswer(answer)">{{answer}}</button></p>  
-
-            <p>Score: {{$store.getters.points}}</p>
-        
+            <button type="submit" :value="answer" @click=" submitAnswer(answer)">{{answer}}</button></p>         
     </div>
 </template>
 
@@ -22,12 +19,14 @@
                 correctAnswer:{},
                 incorrectAnswers:[],
                 displayAnswers:[],
-                selectedAnswer:''               
+                selectedAnswer:'',
+                isCorrect: false              
             }
         },
         methods: {
             async fetchQuestions() {
                 const url = this.$store.state.url
+                console.log(url)
                 try {
                     let response = await fetch(url)
                     .then(response => response.json())
@@ -52,34 +51,40 @@
                 this.displayAnswers = []
                 if(this.questions.length < 1) {
                     //No questions remain, progress to next screen
-                    console.log("No questions remaining")
                     this.$router.push('/results')
-                }else{
+                } else {
                     this.nextQuestion = this.questions[Math.floor(Math.random()*this.questions.length)]
                     this.incorrectAnswers = this.nextQuestion.incorrect_answers
                     this.correctAnswer = this.nextQuestion.correct_answer
-                    this.questions.pop(this.nextQuestion)
-                    console.log(this.nextQuestion) 
                     this.getDisplayAnswers()
+                    //remove selected question from local array so it will not show again
+                    const index = this.questions.indexOf(this.nextQuestion)
+                    this.questions.splice(index, 1)
                 }
                 
             },
             submitAnswer(x){                
-                console.log(this.nextQuestion.correct_answer)
                 if (this.nextQuestion.correct_answer === x ) {
                     console.log("That is correct!")
+                    this.isCorrect = true
                     this.$store.state.points += 10 
+                    this.submitToResults()
                     this.showNextQuestion()   
                 }
                 else {
-                    console.log("wrong answer!")
+                    console.log("Wrong answer!")
+                    this.isCorrect = false
+                    this.submitToResults()
                     this.showNextQuestion()
                 }
+            },
+            submitToResults() {
+                let answerArray = [this.nextQuestion.question, this.correctAnswer, this.isCorrect]
+                this.$store.commit('addAnswers', answerArray);
             }
         },
         mounted(){
             this.fetchQuestions()
-            console.log("mounted")
         } 
     })
     

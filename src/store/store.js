@@ -7,7 +7,8 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
     state: {
         url: '',
-        points: 0
+        points: 0,
+        answers: []
     },
     mutations: {
         setUrl(state, url) {
@@ -15,10 +16,14 @@ export const store = new Vuex.Store({
         },
         change(state, points) {
             state.points = points
+        },
+        addAnswers(state, answer) {
+            state.answers.push(answer)
         }
     },
     getters: {
         url: state => state.url,
-        points: state => state.points
+        points: state => state.points,
+        answers: state => state.answers
     }
 })
