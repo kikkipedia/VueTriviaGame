@@ -1,13 +1,10 @@
 
 <template>
     <div>
-        <div>       
-          
-    </div>
     <div class="background font">
         <h3 class="result-container">Results</h3>
         
-        <div  v-for="answer in $store.state.answers" :key="answer">
+        <div  v-for="answer in $store.state.answers" :key="answer.id">
             <div >
                 <p class="results-container">Question: <br>{{ answer[0] }}</p>
                 

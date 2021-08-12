@@ -1,10 +1,7 @@
 <template>
-<body class="background">
   <div id="app">
     <router-view />
     </div>
-</body>
-  
 </template>
 
 <script>
