@@ -18,7 +18,7 @@
         
         
     </div >
-    <div class="flex-container" v-if="categoriesChoice && difficultyChoice && amountChoice">
+    <div class="flex-container" v-if="categoriesChoice && difficultyChoice && (amountChoice > 0)">
             <p><router-link :to="{ name: 'Questions' }"><button class="button" id="start" v-on:click="changed">Start</button></router-link></p>
         </div>
     </div>
