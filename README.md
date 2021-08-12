@@ -56,6 +56,7 @@ The data to be used in the Trivia quiz was to be fetched from an API. Open Trivi
 This project was completed with JavaScript, HTML, CSS and Vue.
 
 This finished product was containerized and is accessible via Heroku at this link:
+https://frozen-sea-00856.herokuapp.com/
 
 Authors Kristin Åkerlund and Daniel Dumville
 
