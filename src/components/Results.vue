@@ -9,12 +9,17 @@
         
         <div  v-for="answer in $store.state.answers" :key="answer">
             <div >
-                <p class="results-container">Question: {{ answer[0] }}</p>
-                <div class="flex-container">
-                    <p class="answer-container">Correct answer: {{ answer[1] }}</p>
-                    <p class="answer-container">Your answer: {{ answer[2] }}</p>
-                </div>
+                <p class="results-container">Question: <br>{{ answer[0] }}</p>
                 
+                    <div class="flex-container" v-if="answer[1] === answer[2]">
+                        <p class="answer-container">Correct answer: <br>{{ answer[1] }}</p>
+                         <p class="answerCorrect-container">Your answer: <br>{{ answer[2] }}</p>
+                    </div>
+                    <div class="flex-container" v-else>
+                        <p class="answer-container">Correct answer: <br>{{ answer[1] }}</p>
+                         <p class="answerIncorrect-container">Your answer: <br>{{ answer[2] }}</p>
+                    </div>
+                                
                 <hr/>
             </div>           
         </div>
@@ -72,6 +77,7 @@
       background-color: white;
       border-radius: 6px;
       margin: 30px;
+      text-align: center;
   }
   .score-container{
       display: flex;
@@ -97,6 +103,32 @@
       border-width: 10px;
       border: 2px solid cornflowerblue; 
       background-color: white;
+      border-radius: 6px;
+      margin: 30px;
+      text-align: center;
+  }
+  .answerCorrect-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+      width: 300px;
+      border-width: 10px;
+      border: 2px solid cornflowerblue; 
+      background-color: rgb(194, 255, 170);
+      border-radius: 6px;
+      margin: 30px;
+      text-align: center;
+  }
+  .answerIncorrect-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+      width: 300px;
+      border-width: 10px;
+      border: 2px solid cornflowerblue; 
+      background-color: rgb(247, 194, 194);
       border-radius: 6px;
       margin: 30px;
       text-align: center;

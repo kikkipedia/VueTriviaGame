@@ -1,7 +1,6 @@
 <template>
-
-
-<div class="background font" >
+<body class="background">
+    <div class="background font" >
 
         <div class="question-container">
             <p >{{question}}</p> 
@@ -15,6 +14,8 @@
         </div>
  
     </div>
+</body>
+
 </template>
 
 <script>

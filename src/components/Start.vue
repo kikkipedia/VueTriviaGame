@@ -8,17 +8,17 @@
             </option>
         </select>
         <p>Categories</p>
-        <select class="selector" v-model="categoriesChoice">
+        <select class="selector" v-model="categoriesChoice" v-validate= "'required '">
             <option v-for="category in categories" v-bind:key="category.id" :value="category.id">
                 {{category.name}}
             </option>
         </select>
-        <p># of questions</p>
+        <p>Number of questions</p>
         <input class="inputNumber"   v-model="amountChoice" type="number" min="1">
         
         
     </div >
-    <div class="flex-container" v-if="categoriesChoice && difficultyChoice && (amountChoice > 0)">
+    <div class="flex-container" v-if="(categoriesChoice ) && (difficultyChoice  )  && (amountChoice > 0)" >
             <p><router-link :to="{ name: 'Questions' }"><button class="button" id="start" v-on:click="changed">Start</button></router-link></p>
         </div>
     </div>
@@ -33,8 +33,8 @@
             return {
                 difficulties: ['easy', 'medium', 'hard'],
                 categories: [],
-                categoriesChoice: {},
-                difficultyChoice: {},
+                categoriesChoice: undefined,
+                difficultyChoice: undefined,
                 amountChoice: {}
             }
         },
@@ -67,16 +67,20 @@
   border-color: cornflowerblue;
   border-width: 2px;
   border-radius: 6px; 
+  margin:10px;
+  padding: 6px;
 }
 .inputNumber{
       display: flex;
   flex-direction: column;
-  max-width: 200px;
+  max-width: 50px;
   justify-content: flex-start;
   align-items: flex-start;
   border-color: cornflowerblue;
   border-width: 2px;
   border-radius: 6px;
+  margin:10px;
+  padding: 6px;
 }
 
 </style>
