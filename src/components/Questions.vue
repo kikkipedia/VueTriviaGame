@@ -26,11 +26,9 @@
                 questions:[],
                 nextQuestion:'',
                 question:'',
-                type:{},
                 correctAnswer:{},
                 incorrectAnswers:[],
-                displayAnswers:[],
-                selectedAnswer:''              
+                displayAnswers:[]            
             }
         },
         methods: {

@@ -33,8 +33,6 @@
             return {
                 difficulties: ['easy', 'medium', 'hard'],
                 categories: [],
-                amount: 0,
-                categoryId: {},
                 categoriesChoice: {},
                 difficultyChoice: {},
                 amountChoice: {}
