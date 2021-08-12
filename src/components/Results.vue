@@ -99,6 +99,7 @@
       background-color: white;
       border-radius: 6px;
       margin: 30px;
+      text-align: center;
   }
 
 </style>

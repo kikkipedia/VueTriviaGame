@@ -32,8 +32,8 @@ export default {
       justify-content: center;
       border: 2px solid cornflowerblue;
       background-color: white;
-      height: 40px;
-      width: 100px;
+      height: 60px;
+      width: 120px;
       border-radius: 6px;
       margin: 10px;
       font-size: 12px;
