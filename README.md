@@ -1,3 +1,4 @@
+
 # Trivia Game with Vue 	:trophy:
 
 ### This project was structured around the specifications outlined by Noroff which are summarised below:
@@ -10,12 +11,12 @@
     b) The Question screen 
     c) The Result screen
 
-The Start Screen
+##### The Start Screen
 a) Your app should start on a “Start Screen.”
- b) The user must be able to select the difficulty, number of questions and category. 
+b) The user must be able to select the difficulty, number of questions and category. 
 c) The user must click a button or anywhere on the screen to start playing.
 
-The Question Screen
+##### The Question Screen
 a) Once the game starts, the app must fetch the questions from the API setup in the previous step. The app must ONLY display ONE question at a time. 
 b) If it is multiple choice, have 4 buttons with each answer as the text. If it is a True/False question, only display 2 buttons, one for True and one for False.
  c) Once a question is answered the app must move on to the next question. 
