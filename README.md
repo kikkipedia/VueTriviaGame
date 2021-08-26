@@ -1,6 +1,6 @@
 # Trivia Game with Vue 	:trophy:
 
-This project was structured around the specifications outlined by Noroff which are summarised below:
+### This project was structured around the specifications outlined by Noroff which are summarised below:
 
 -	Build an online trivia game as a Single Page Application using the Vue.js framework (version 2.x).
 -	Design a wireframe using Figma
