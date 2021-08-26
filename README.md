@@ -1,4 +1,4 @@
-# Trivia Game with Vue
+# Trivia Game with Vue 	:trophy:
 
 This project was structured around the specifications outlined by Noroff which are summarised below:
 
@@ -33,7 +33,7 @@ This project was completed with JavaScript, HTML, CSS and Vue.
 This finished product was containerized and is accessible via Heroku at this link:
 https://frozen-sea-00856.herokuapp.com/
 
-Authors Kristin Åkerlund and Daniel Dumville
+Authors Kristin Åkerlund (https://github.com/kikkipedia) and [Daniel Dumville](https://github.com/Dandandumdum) :handshake:
 
 
 
