@@ -1,6 +1,8 @@
 
 # Trivia Game with Vue 	:trophy:
 
+## Authors [kikkipedia] (https://github.com/kikkipedia) and [Daniel Dumville](https://github.com/Dandandumdum) :handshake:
+
 ### This project was structured around the specifications outlined by Noroff which are summarised below:
 
 -	Build an online trivia game as a Single Page Application using the Vue.js framework (version 2.x).
@@ -30,7 +32,7 @@ This project was completed with JavaScript, HTML, CSS and Vue.
 This finished product was containerized and is accessible via Heroku at this link:
 https://frozen-sea-00856.herokuapp.com/
 
-Authors [kikkipedia] (https://github.com/kikkipedia) and [Daniel Dumville](https://github.com/Dandandumdum) :handshake:
+
 
 
 
