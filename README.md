@@ -6,10 +6,6 @@
 -	Build an online trivia game as a Single Page Application using the Vue.js framework (version 2.x).
 -	Design a wireframe using Figma
 -	Write HTML % CSS as needed
--	Use the Vue.js framework to build the following screens into your trivia game:
-    a) The Start screen 
-    b) The Question screen 
-    c) The Result screen
 
 ##### Start Screen
 - App starts here
@@ -34,7 +30,7 @@ This project was completed with JavaScript, HTML, CSS and Vue.
 This finished product was containerized and is accessible via Heroku at this link:
 https://frozen-sea-00856.herokuapp.com/
 
-Authors Kristin Åkerlund (https://github.com/kikkipedia) and [Daniel Dumville](https://github.com/Dandandumdum) :handshake:
+Authors [kikkipedia] (https://github.com/kikkipedia) and [Daniel Dumville](https://github.com/Dandandumdum) :handshake:
 
 
 
