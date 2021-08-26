@@ -1,7 +1,7 @@
 
 # Trivia Game with Vue 	:trophy:
 
-## Authors [kikkipedia] (https://github.com/kikkipedia) and [Daniel Dumville](https://github.com/Dandandumdum) :handshake:
+### Authors [kikkipedia](https://github.com/kikkipedia) and [Daniel Dumville](https://github.com/Dandandumdum) :handshake:
 
 ### This project was structured around the specifications outlined by Noroff which are summarised below:
 
