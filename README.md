@@ -1,29 +1,6 @@
-# vue-trivia-game
+# Trivia Game with Vue
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-Assignment Five for Experis Academy and Noroff – Building a Quiz as a Single Page Application with Vue.
+## A Quiz as a Single Page Application with Vue.
 
 This project was structured around the specifications outlined by Noroff which are summarised below:
 
@@ -59,4 +36,11 @@ This finished product was containerized and is accessible via Heroku at this lin
 https://frozen-sea-00856.herokuapp.com/
 
 Authors Kristin Åkerlund and Daniel Dumville
+
+
+
+## Vue Project setup
+```
+npm install
+```
 
