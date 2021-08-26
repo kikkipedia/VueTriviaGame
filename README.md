@@ -1,7 +1,5 @@
 # Trivia Game with Vue
 
-## A Quiz as a Single Page Application with Vue.
-
 This project was structured around the specifications outlined by Noroff which are summarised below:
 
 -	Build an online trivia game as a Single Page Application using the Vue.js framework (version 2.x).
